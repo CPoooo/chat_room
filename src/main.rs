@@ -4,6 +4,13 @@ use std::net::{TcpListener, TcpStream};
 
 fn connect_client() -> io::Result<()> {
     println!("connecting client");
+    let stream = TcpStream::connect("127.0.0.1:5000");
+
+    match stream {
+        Ok(_) => println!("Connected successfully to server: 127.0.0.1:5000"),
+        Err(_) => println!("Failed to connect to server: 127.0.0.1:5000"),
+    }
+
     Ok(())
 }
 
